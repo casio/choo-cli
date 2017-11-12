@@ -1,0 +1,143 @@
+{
+  "name": "casio/choo-cli",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "",
+  "branch": "master",
+  "style": {
+    "name": "Default",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "-apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": 400,
+    "bold": 600,
+    "lineHeight": 1.5,
+    "typeScale": [
+      72,
+      48,
+      24,
+      20,
+      16,
+      14,
+      12
+    ],
+    "monospace": "Menlo, monospace",
+    "heading": {
+      "fontFamily": null,
+      "fontStyle": null,
+      "fontWeight": 600,
+      "lineHeight": 1.25,
+      "textTransform": null,
+      "letterSpacing": null
+    },
+    "h0": {},
+    "h1": {},
+    "h2": {},
+    "h3": {},
+    "h4": {},
+    "h5": {},
+    "h6": {},
+    "alternativeText": {},
+    "space": [
+      0,
+      8,
+      16,
+      32,
+      48,
+      64,
+      96
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "centered": false
+    },
+    "colors": {
+      "text": "#111",
+      "background": "#fff",
+      "primary": "#08e",
+      "secondary": "#059",
+      "highlight": "#e08",
+      "border": "#ddd",
+      "muted": "#eee"
+    },
+    "border": {
+      "width": 1,
+      "radius": 2
+    },
+    "link": {},
+    "button": {
+      "hover": {
+        "boxShadow": "inset 0 0 0 999px rgba(0, 0, 0, .125)"
+      }
+    },
+    "input": {},
+    "body": {
+      "margin": 0
+    },
+    "breakpoints": {
+      "xs": "@media screen and (max-width:40em)",
+      "sm": "@media screen and (min-width:40em)",
+      "md": "@media screen and (min-width:52em)",
+      "lg": "@media screen and (min-width:64em)"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/casio/choo-cli",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/choo-cli",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "choo-cli",
+      "subhead": "Command line scaffolding tools for choo js",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "choo-cli: Command line scaffolding tools for choo js",
+          "url": ""
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "casio",
+          "repo": "choo-cli"
+        }
+      ],
+      "text": "v0.8.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<p>This is a tool for generating <a href=\"https://github.com/yoshuawuyts/choo\">choo</a> apps.</p>\n<p><img src=\"./choo-cli-demo.gif\"></p>\n<p>To Install:</p>\n<pre>npm install choo-<span class=\"hljs-keyword\">cli</span> -g</pre><p>Using choo-cli will scaffold out a project and help generate additional files like models, pages, and elements.\nIt also generates common scripts you can use to build/test/serve your choo app.</p>\n<pre><span class=\"hljs-comment\"># generate a new project folder,</span>\n<span class=\"hljs-comment\"># comes with package.json, readme, and recommended structure</span>\nchoo new my-new-project\n\n<span class=\"hljs-comment\"># generate a new page</span>\nchoo generate page my-new-page\n\n<span class=\"hljs-comment\"># generate a new model</span>\nchoo generate model my-new-model\n\n<span class=\"hljs-comment\"># generate a new element</span>\nchoo generate element my-new-element\n\n<span class=\"hljs-comment\"># run your app at localhost:8080</span>\nnpm start\n\n<span class=\"hljs-comment\"># build your app for production</span>\nnpm run build\n\n<span class=\"hljs-comment\"># test your app</span>\nnpm <span class=\"hljs-built_in\">test</span></pre><h2>Usage</h2>\n<p>Choo-cli runs off of node and npm, you can install choo-cli globably with the\nfollowing command:</p>\n<p>The basic signature of a choo-cli command look like this:</p>\n<pre>$ choo &lt;<span class=\"hljs-built_in\">command</span>&gt; &lt;name&gt; [options]</pre><p>For example to create a new project skeleton we can run:</p>\n<pre>$ choo new my-project</pre><p>You can now cd into my-project</p>\n<pre>$ <span class=\"hljs-built_in\">cd</span> my-project</pre><p>Choo-cli will create a directory structure that <a href=\"https://github.com/yoshuawuyts/choo-handbook/blob/master/designing-for-reusability.md\">we&apos;ve found to be optimal</a> for slim\napplications and reusability.</p>\n<pre>assets/        images and fonts, if you have any\nelements/      standalone application-specific elements\nlib/           generalized components, should be moved out of project later\nmodels/        choo models\npages/         views that are directly mounted on the router\nscripts/       shell scripts, to be interfaced with through `npm scripts`\nclient.js      main application entry; programmatic manifest file\npackage.json   manifest file</pre><h2>Custom templates</h2>\n<p>You can also install custom templates from Github, like this</p>\n<pre>$ choo new &lt;project&gt; from &lt;github-user&gt;/&lt;github-repo&gt;</pre><p>Custom templates must have <code>ejs</code> templating syntax.</p>\n<h2>Generators</h2>\n<p>You can use choo-cli to generate pieces of your project as you are developing.\nFor example you can generate</p>\n<p>Pages</p>\n<pre>$ choo generate page my-page</pre><p>Models</p>\n<pre>$ choo generate model my-model</pre><p>Elements</p>\n<pre>$ choo generate element my-element</pre><h2>npm scripts</h2>\n<p>Choo-cli was made for generating choo projects and code, and leverages npm scripts\nfor certain project task. So in our project a set of npm scripts have already\nbeen generated that perform various tasks such as testing/serving/building/etc.</p>\n<p>At any time you can review the complete list of <code>npm scripts</code> available by viewing\n<a href=\"./package.json\">package.json</a> or by running the following command:</p>\n<pre>$ npm <span class=\"hljs-keyword\">run</span><span class=\"bash\"></span></pre><p>Here is complete list the the commands and their function</p>\n<ul>\n<li>start - start dev server at <a href=\"https://localhost:8080\">localhost:8080</a></li>\n<li>build:prod - builds your project to deploy to a server</li>\n<li>test - runs unit tests, for now it will just run linting.</li>\n<li>lint - runs eslint against your code</li>\n</ul>\n<p>So for example you can run <code>npm start</code> to start a dev server. You can now see your\napp running at <a href=\"https://localhost:8080\">localhost:8080</a>\nfirst time this will pull in your node deps and start a budo server</p>\n<h2>License</h2>\n<p>MIT &#xA9;</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/casio/choo-cli",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/casio",
+          "text": "casio"
+        }
+      ]
+    }
+  ]
+}
